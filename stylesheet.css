@@ -1,0 +1,74 @@
+/* Post-it realista: papel amarillo con degradado, franja pegajosa arriba, sombra de papel despegado. */
+
+/* ---- Icono de la barra superior: notita en miniatura ---- */
+.postit-icon {
+    width: 15px; height: 15px;
+    border-radius: 1px 1px 2px 2px;
+    background-gradient-direction: vertical;
+    background-gradient-start: #FDF1A4;
+    background-gradient-end: #F2D45A;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.55);
+}
+.postit-icon-strip { height: 3px; background-color: rgba(255,255,255,0.55); border-bottom: 1px solid rgba(150,110,0,0.25); }
+.postit-icon-line  { height: 1px; width: 9px; margin: 2px 0 0 3px; background-color: rgba(110,85,0,0.50); }
+.postit-icon-line-short { width: 6px; }
+
+/* ---- La nota ---- */
+.postit {
+    width: 210px; height: 210px;
+    border-radius: 1px 1px 4px 4px;
+    background-gradient-direction: vertical;
+    background-gradient-start: #FDF1A0;
+    background-gradient-end: #F5DB68;
+    border: 1px solid rgba(140,105,0,0.22);
+}
+/* Cabecera = franja adhesiva (más clara) y asa para arrastrar */
+.postit-header {
+    padding: 4px 8px 3px 10px;
+    border-radius: 1px 1px 0 0;
+    border-bottom: 1px solid rgba(140,105,0,0.14);
+    background-gradient-direction: vertical;
+    background-gradient-start: rgba(255,255,255,0.42);
+    background-gradient-end: rgba(255,255,255,0.08);
+}
+.postit-lines  { padding: 6px 14px 6px 12px; }
+/* Pie: sombreado inferior */
+.postit-footer {
+    height: 16px;
+    border-radius: 0 0 4px 4px;
+    background-gradient-direction: vertical;
+    background-gradient-start: rgba(150,110,0,0.0);
+    background-gradient-end: rgba(150,110,0,0.10);
+}
+
+/* Pin: casi invisible hasta señalarlo; anclado se oscurece */
+.postit-pin { padding: 3px; border-radius: 6px; background-color: transparent; }
+.postit-pin:hover { background-color: rgba(70,55,0,0.08); }
+.postit-pin-icon { icon-size: 12px; color: rgba(70,55,0,0.32); }
+.postit-pin-on   { color: rgba(70,55,0,0.85); }
+
+/* Tick: marca ✓ tenue; al pasar el ratón se marca más, y tachada queda oscura */
+.postit-tick { width: 14px; height: 14px; padding: 0; margin: 0 8px 0 0; background-color: transparent; border: none; }
+.postit-tick-icon { icon-size: 14px; color: rgba(70,55,0,0.28); }
+.postit-tick:hover .postit-tick-icon { color: rgba(70,55,0,0.7); }
+.postit-tick-done .postit-tick-icon { color: rgba(70,55,0,0.85); }
+
+/* Líneas de texto: sin caja, solo texto */
+.postit-line, .postit-line:focus {
+    background-color: transparent;
+    box-shadow: none;
+    border: none;
+    border-bottom: 1px solid transparent;
+    border-radius: 0;
+    padding: 5px 0;
+    min-height: 0;
+    color: #3A3213;
+    caret-color: #3A3213;
+    selection-background-color: rgba(70,55,0,0.18);
+    font-size: 13px;
+}
+/* Línea de escribir: fina raya, más marcada con el foco */
+.postit-line-new         { border-bottom: 1px solid rgba(70,55,0,0.20); }
+.postit-line-new:focus   { border-bottom: 1px solid rgba(70,55,0,0.45); }
+/* Línea tachada */
+.postit-line-done, .postit-line-done:focus { color: rgba(58,50,19,0.45); text-decoration: line-through; }

@@ -1,0 +1,6 @@
+{
+  "uuid": "postit@leg4sov",
+  "name": "Post-it",
+  "description": "Nota flotante tipo post-it con lista de tareas.",
+  "shell-version": ["50"]
+}
