@@ -9,9 +9,10 @@ A realistic yellow sticky note for the GNOME desktop, with a minimal to-do list 
 - **One sticky note** floating on your desktop, toggled from an icon in the top bar.
 - **Minimal to-do list**: press `Enter` to commit a line and start a new one below.
 - **Tick to strike, tick again to delete**: the first click on the ✓ strikes the line through, the second removes it.
-- **Pin it above your windows**: unpinned, the note sits *below* windows like a desktop widget; pinned, it stays on top.
-- **Draggable** by its header, pinned or not, and it never leaves the screen.
-- **Auto-save**: lines, strike state, position, pinned and visible state are restored after a reboot.
+- **Always on top** of your windows, and it hides itself while a window is fullscreen.
+- **Double-click anywhere** on the note (except the header) to start typing on the last line.
+- **Draggable** by its header. If a monitor is unplugged, the note moves back onto a visible screen.
+- **Auto-save**: lines, strike state, position and visible state are restored after a reboot.
 - **Keyboard friendly**: `↑`/`↓` move between lines, `Backspace` on an empty line deletes it, `Esc` releases focus.
 - Enable / disable it from the **Extensions** app like any other extension.
 
@@ -44,8 +45,8 @@ or use the **Extensions** app.
 | Add a task | Type, then `Enter` |
 | Strike a task | Click the ✓ on its left |
 | Delete a struck task | Click the ✓ again |
+| Start typing | Double-click an empty spot of the note |
 | Move the note | Drag the strip at the top |
-| Keep it above windows | Click the pin icon in the header |
 | Change line | `↑` / `↓` |
 | Delete an empty line | `Backspace` |
 | Leave the text field | `Esc` |
@@ -56,7 +57,7 @@ or use the **Extensions** app.
 ~/.local/share/postit-note/notes.json
 ```
 
-The file lives outside the extension folder, so updating or reinstalling the extension never erases your notes. Writes are debounced (500 ms) and atomic. If the file is corrupted it is moved to `notes.json.bak` and the note starts empty.
+The file lives outside the extension folder, so updating or reinstalling the extension never erases your notes. Writes are debounced (500 ms), atomic and asynchronous, so the desktop never stalls waiting for the disk (only the final save on disable is synchronous). If the file is corrupted it is moved to `notes.json.bak` and the note starts empty.
 
 ## Development
 
@@ -84,6 +85,5 @@ journalctl -f -o cat /usr/bin/gnome-shell
 ## Known limitations
 
 - Pressing `Enter` on a line in the middle of the list moves focus to the next line instead of inserting a new one.
-- The "below windows" layer uses GNOME Shell's internal `_backgroundGroup`, so it may break in a future GNOME release.
 - Persistence has been verified in a nested shell; a full logout/login test is still pending.
 - Single note, fixed size, no preferences window — on purpose.

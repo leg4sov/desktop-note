@@ -24,14 +24,14 @@
 }
 /* Cabecera = franja adhesiva (más clara) y asa para arrastrar */
 .postit-header {
-    padding: 4px 8px 3px 10px;
+    height: 20px;
     border-radius: 1px 1px 0 0;
     border-bottom: 1px solid rgba(140,105,0,0.14);
     background-gradient-direction: vertical;
     background-gradient-start: rgba(255,255,255,0.42);
     background-gradient-end: rgba(255,255,255,0.08);
 }
-.postit-lines  { padding: 6px 14px 6px 12px; }
+.postit-lines  { padding: 6px 12px 6px 6px; }
 /* Pie: sombreado inferior */
 .postit-footer {
     height: 16px;
@@ -41,14 +41,8 @@
     background-gradient-end: rgba(150,110,0,0.10);
 }
 
-/* Pin: casi invisible hasta señalarlo; anclado se oscurece */
-.postit-pin { padding: 3px; border-radius: 6px; background-color: transparent; }
-.postit-pin:hover { background-color: rgba(70,55,0,0.08); }
-.postit-pin-icon { icon-size: 12px; color: rgba(70,55,0,0.32); }
-.postit-pin-on   { color: rgba(70,55,0,0.85); }
-
 /* Tick: marca ✓ tenue; al pasar el ratón se marca más, y tachada queda oscura */
-.postit-tick { width: 14px; height: 14px; padding: 0; margin: 0 8px 0 0; background-color: transparent; border: none; }
+.postit-tick { width: 14px; height: 14px; padding: 0; margin: 0 4px 0 0; background-color: transparent; border: none; }
 .postit-tick-icon { icon-size: 14px; color: rgba(70,55,0,0.28); }
 .postit-tick:hover .postit-tick-icon { color: rgba(70,55,0,0.7); }
 .postit-tick-done .postit-tick-icon { color: rgba(70,55,0,0.85); }
